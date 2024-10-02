@@ -1,8 +1,17 @@
 # quarkus-kt-cli
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+This project is a PoC to check duckdb data load and query performance
 
-If you want to learn more about Quarkus, please visit its website: <https://quarkus.io/>.
+This project uses Quarkus, the Supersonic Subatomic Java Framework.
+## Prepare postgres DB with docker
+```shell script
+ docker create --name my-postgres -p 5432:5432 -e POSTGRES_PASSWORD=admin postgres
+ docker start my-postgres
+```
+```shell script
+docker exec -it my-postgres psql -U postgres -c "create role iron with login password 'mySecret';"
+docker exec -it my-postgres psql -U postgres -c "create database iron owner iron"
+````
 
 ## Running the application in dev mode
 
